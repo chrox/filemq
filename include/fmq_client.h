@@ -58,6 +58,10 @@ void
 zmsg_t *
     fmq_client_recv (fmq_client_t *self);
 
+//  Receive message from API without blocking
+zmsg_t *
+    fmq_client_recv_nowait (fmq_client_t *self);
+
 //  Return API pipe handle for polling
 void *
     fmq_client_handle (fmq_client_t *self);

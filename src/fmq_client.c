@@ -129,6 +129,17 @@ fmq_client_recv (fmq_client_t *self)
 
 
 //  --------------------------------------------------------------------------
+//  Receive message from API without blocking
+
+zmsg_t *
+fmq_client_recv_nowait (fmq_client_t *self)
+{
+    zmsg_t *msg = zmsg_recv_nowait (self->pipe);
+    return msg;
+}
+
+
+//  --------------------------------------------------------------------------
 //  Return API pipe handle for polling
 
 void *

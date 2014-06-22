@@ -54,6 +54,14 @@ void
 int
     fmq_server_bind (fmq_server_t *self, const char *endpoint);
 
+//  Wait for message from API
+zmsg_t *
+    fmq_server_recv (fmq_server_t *self);
+
+//  Receive message from API without blocking
+zmsg_t *
+    fmq_server_recv_nowait (fmq_server_t *self);
+
 //  
 void
     fmq_server_publish (fmq_server_t *self, const char *location, const char *alias);

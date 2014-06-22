@@ -122,6 +122,28 @@ fmq_server_bind (fmq_server_t *self, const char *endpoint)
 
 
 //  --------------------------------------------------------------------------
+//  Wait for message from API
+
+zmsg_t *
+fmq_server_recv (fmq_server_t *self)
+{
+    zmsg_t *msg = zmsg_recv (self->pipe);
+    return msg;
+}
+
+
+//  --------------------------------------------------------------------------
+//  Receive message from API without blocking
+
+zmsg_t *
+fmq_server_recv_nowait (fmq_server_t *self)
+{
+    zmsg_t *msg = zmsg_recv_nowait (self->pipe);
+    return msg;
+}
+
+
+//  --------------------------------------------------------------------------
 
 void
 fmq_server_publish (fmq_server_t *self, const char *location, const char *alias)
